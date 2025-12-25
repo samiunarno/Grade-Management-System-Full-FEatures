@@ -1,18 +1,41 @@
-## Getting Started
+# JavaPort Suite
 
-Welcome to the VS Code Java world. Here is a guideline to help you get started to write Java code in Visual Studio Code.
+This project is a modern web application port of two Java applications: a Swing-based **Professional Calculator** and a Console-based **Student Grade Management System**. It utilizes React, TypeScript, and Tailwind CSS to replicate and enhance the original functionality.
 
-## Folder Structure
+## Features
 
-The workspace contains two folders by default, where:
+### 1. Professional Calculator
+Replicates the `ProfessionalCalculator.java` Swing application.
+*   **Dual Theme Support:** Toggle between Dark and Light modes with persistent state.
+*   **History & Logic:** Standard arithmetic operations with order of operations support.
+*   **UI/UX:** Styled to match the original `RoundRectangle2D` Java Swing aesthetic with modern CSS gradients.
+*   **Responsive:** Fully responsive layout adapting to mobile and desktop.
 
-- `src`: the folder to maintain sources
-- `lib`: the folder to maintain dependencies
+### 2. Grade Management System
+Replicates the `StudentSys.java` logic.
+*   **Role-Based Access Control (RBAC):**
+    *   **Admin:** Full access to manage users and students.
+    *   **Teacher:** Can add students, grade them, and view statistics.
+    *   **Student:** Read-only access to view class data.
+*   **Student Management:** Create, read, and delete student records.
+*   **Grading Logic:** Automatic calculation of Averages and Letter Grades (A-F).
+*   **Class Statistics:** Visual breakdown of grade distributions and top/bottom performers.
+*   **Search & Sort:** Filter students by name/ID and sort by performance.
 
-Meanwhile, the compiled output files will be generated in the `bin` folder by default.
+## Tech Stack
 
-> If you want to customize the folder structure, open `.vscode/settings.json` and update the related settings there.
+*   **Framework:** React 18
+*   **Language:** TypeScript
+*   **Styling:** Tailwind CSS
+*   **Icons:** Lucide React
+*   **Charts:** Recharts (for Grade Statistics)
 
-## Dependency Management
+## Default Credentials
 
-The `JAVA PROJECTS` view allows you to manage your dependencies. More details can be found [here](https://github.com/microsoft/vscode-java-dependency#manage-dependencies).
+The system comes pre-loaded with the following accounts (matching the original Java code):
+
+| Role    | Username | Password   |
+| :------ | :------- | :--------- |
+| Admin   | admin    | admin123   |
+| Teacher | teacher  | teacher123 |
+| Student | student  | student123 |
