@@ -24,6 +24,9 @@ class User {
     
     // Setter for password (for password change)
     public void setPassword(String password) { this.password = password; }
+
+    // [FIXED] Added setter for role
+    public void setRole(String role) { this.role = role; }
     
     @Override
     public String toString() {
@@ -84,7 +87,7 @@ class LoginSystem {
     }
     
     // Save users to file
-    private void saveUsers() {
+    public void saveUsers() { // Changed to public so GradeManagementSystem can use it
         try {
             PrintWriter writer = new PrintWriter(USER_FILE);
             for (User user : users) {
@@ -341,6 +344,7 @@ class LoginSystem {
         }
     }
     
+    // [FIXED] Updated to implement role changing
     private void changeUserRole() {
         viewAllUsers();
         System.out.print("\nEnter username to change role: ");
@@ -361,9 +365,10 @@ class LoginSystem {
             String newRole = scanner.nextLine().trim().toLowerCase();
             
             if (newRole.equals("admin") || newRole.equals("teacher") || newRole.equals("student")) {
-                // Update role (in real implementation, we would have a setter)
-                System.out.println("Role change functionality would be implemented here.");
-                System.out.println("(User class would need a setRole() method)");
+                // Now using the setRole method
+                toChange.setRole(newRole);
+                saveUsers();
+                System.out.println("✓ Role updated successfully to: " + newRole);
             } else {
                 System.out.println("✗ Invalid role!");
             }
@@ -1131,7 +1136,7 @@ class GradeManagementSystem {
     }
 }
 
-
+// ==================== MAIN CLASS ====================
 public class StudentSys {
     public static void main(String[] args) {
         System.out.println("\n" + "*".repeat(70));
